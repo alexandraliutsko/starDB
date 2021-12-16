@@ -3,16 +3,13 @@ import React from "react";
 import SwapiService from "../../services/swapi-service";
 
 import './random-planet.css';
+import Spinner from "../spinner/spiner";
 
 export default class RandomPlanet extends React.Component {
     swapiService = new SwapiService();
 
     state = {
-        id: null,
-        name: null,
-        population: null,
-        rotationPeriod: null,
-        diameter: null
+        planet: {}
     }
 
     constructor() {
@@ -20,27 +17,26 @@ export default class RandomPlanet extends React.Component {
         this.updatePlanet();
     }
 
+    onPlanetLoaded = (planet) => {
+        this.setState({ planet });
+    };
+
     updatePlanet() {
         const id = Math.floor(Math.random() * 21 + 1);
 
         this.swapiService.getPlanet(id)
-            .then((planet) => {
-                this.setState({
-                    id,
-                    name: planet.name,
-                    population: planet.population,
-                    rotationPeriod: planet.rotation_period,
-                    diameter: planet.diameter
-                });
-            });
+            .then(this.onPlanetLoaded);
     }
 
     render() {
-        const { id, name, population, rotationPeriod, diameter } = this.state;
+        const { planet: { id, name, population, rotationPeriod, diameter } } = this.state;
+
         return (
             <div className="random-planet jumbotron rounded">
                 <img className="planet-image"
-                     src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="planet"/>
+                     src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+                     onError={(e) => {e.target.onerror = null; e.target.src="https://us.123rf.com/450wm/1xpert/1xpert2005/1xpert200500029/146048530-planet-earth-globe-isolated-.jpg?ver=6"}}
+                     alt="planet" />
                 <div>
                     <h4>{ name }</h4>
                     <ul className="list-group list-group-flush">

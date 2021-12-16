@@ -15,7 +15,7 @@
 }
 
 .random-planet .list-group-item {
-    padding: .25rem;
+    padding: .25rem .5rem;
 }
 
 .random-planet .list-group-item .term {
