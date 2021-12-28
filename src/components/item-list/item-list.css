@@ -1,3 +1,8 @@
+.item-list {
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
 .item-list .list-group-item {
     cursor: pointer;
 }
