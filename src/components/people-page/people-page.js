@@ -2,7 +2,7 @@ import React from "react";
 
 import './people-page.css';
 import ItemList from "../item-list/item-list";
-import PersonDetails from "../person-details/person-details";
+import ItemDetails from "../item-details/item-details";
 import ErrorIndicator from "../error-indicator/error-indicator";
 import SwapiService from "../../services/swapi-service";
 import Row from "../row/row";
@@ -26,6 +26,8 @@ export default class PeoplePage extends React.Component {
     }
 
     render() {
+        const { getPerson, getPersonImage } = this.swapiService;
+
         if (this.state.hasError) {
             return <ErrorIndicator />
         }
@@ -37,7 +39,7 @@ export default class PeoplePage extends React.Component {
         );
 
         const personDetails = (
-            <PersonDetails personId={ this.state.selectedPerson }/>
+            <ItemDetails itemId={ this.state.selectedPerson } getData={getPerson} getImageUrl={getPersonImage} />
         );
 
         return (
