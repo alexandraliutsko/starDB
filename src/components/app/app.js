@@ -9,7 +9,15 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 import ItemList from "../item-list/item-list";
 import ItemDetails, { Record } from "../item-details/item-details";
 import SwapiService from "../../services/swapi-service";
-import Row from "../row/row";
+import {
+    PersonList,
+    PlanetList,
+    StarshipList,
+    PlanetDetails,
+    StarshipDetails,
+    PersonDetails
+} from '../sw-components/index'
+
 
 export default class App extends React.Component {
     swapiService = new SwapiService();
@@ -19,7 +27,7 @@ export default class App extends React.Component {
     };
 
     render() {
-        const { getStarship, getPerson, getPersonImage, getStarshipImage } = this.swapiService;
+        const { getStarship, getPerson, getPersonImage, getStarshipImage ,getAllPeople, getAllPlanets } = this.swapiService;
 
         const personDetails = (
             <ItemDetails itemId={11} getData={getPerson} getImageUrl={getPersonImage}>
@@ -45,7 +53,13 @@ export default class App extends React.Component {
             <div className="stardb-app">
                 <Header />
 
-                <Row left={personDetails} right={starshipDetails} />
+                <PersonDetails itemId={11} />
+                <PlanetDetails itemId={11} />
+                <StarshipDetails itemId={11} />
+
+                <PersonList />
+                <PlanetList />
+                <StarshipList />
             </div>
         );
     }
