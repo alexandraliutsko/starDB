@@ -1,14 +1,12 @@
 import React from "react";
 
-import Header from "../header/header";
-import PeoplePage from "../people-page/people-page";
-import RandomPlanet from "../random-planet/random-planet";
-
 import './app.css'
+
+import Header from "../header/header";
 import ErrorIndicator from "../error-indicator/error-indicator";
-import ItemList from "../item-list/item-list";
 import ItemDetails, { Record } from "../item-details/item-details";
 import SwapiService from "../../services/swapi-service";
+import { SwapiServiceProvider } from "../swapi-service-context/swapi-service-context";
 import {
     PersonList,
     PlanetList,
@@ -50,17 +48,19 @@ export default class App extends React.Component {
         }
 
         return (
-            <div className="stardb-app">
-                <Header />
+            <SwapiServiceProvider value={ this.swapiService }>
+                <div className="stardb-app">
+                    <Header />
 
-                <PersonDetails itemId={11} />
-                <PlanetDetails itemId={11} />
-                <StarshipDetails itemId={11} />
+                    <PersonDetails itemId={11} />
+                    <PlanetDetails itemId={11} />
+                    <StarshipDetails itemId={11} />
 
-                <PersonList />
-                <PlanetList />
-                <StarshipList />
-            </div>
+                    <PersonList />
+                    <PlanetList />
+                    <StarshipList />
+                </div>
+            </SwapiServiceProvider>
         );
     }
 }
