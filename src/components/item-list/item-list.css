@@ -1,5 +1,4 @@
 .item-list {
-    margin: 10px 0;
     max-height: 70vh;
     overflow-y: scroll;
 }
