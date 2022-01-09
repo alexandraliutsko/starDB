@@ -58,7 +58,7 @@ export default class ItemDetails extends React.Component {
             <div className="item-details card">
                 <img className="item-image"
                      src={ image }
-                     onError={(e) => {e.target.onerror = null; e.target.src = "https://lh3.googleusercontent.com/proxy/1S3s8Vtcrt8qFdoZ4H2Ejct2tMkwHuwe9HZkOY-gOnxZ_OenKGVt882RvZxAUzTpcxc5VdfSAy97_aibRL0JPs1iNZMMguF0NLL4LaAxUdOo2EoT"}}
+                     onError={(e) => {e.target.onerror = null; e.target.src = "https://image.shutterstock.com/image-photo/portrait-gray-tabby-cat-on-260nw-1180312252.jpg"}}
                      alt="item" />
 
                 <div className="card-body">

@@ -68,7 +68,7 @@ export default class RandomPlanet extends React.Component {
         }
 
         return (
-            <div className="random-planet jumbotron rounded">
+            <div className="random-planet jumbotron rounded card">
                 <img className="planet-image"
                      src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                      onError={(e) => {e.target.onerror = null; e.target.src="https://us.123rf.com/450wm/1xpert/1xpert2005/1xpert200500029/146048530-planet-earth-globe-isolated-.jpg?ver=6"}}

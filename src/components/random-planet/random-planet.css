@@ -1,5 +1,7 @@
 .random-planet {
+    margin: 10px 0 30px;
     display: flex;
+    flex-direction: row;
     padding: 1rem;
 }
 
