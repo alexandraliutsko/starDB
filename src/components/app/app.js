@@ -9,8 +9,7 @@ import SwapiService from "../../services/swapi-service";
 import { SwapiServiceProvider } from "../swapi-service-context/swapi-service-context";
 import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages'
 
-import {BrowserRouter as Router, Route, Routes, useParams} from "react-router-dom";
-import {StarshipDetails} from "../sw-components";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default class App extends React.Component {
   swapiService = new SwapiService();
@@ -18,6 +17,15 @@ export default class App extends React.Component {
   state = {
     hasError: false
   };
+
+  MainContent = () => {
+    return (
+      <div className="main-content">
+        <h2 className="title">Welcome to StarDB!</h2>
+        <h4 className="subtitle">Please, choose any category in menu!</h4>
+      </div>
+    )
+  }
 
   render() {
     if (this.state.hasError) {
@@ -33,10 +41,10 @@ export default class App extends React.Component {
             <RandomPlanet />
 
             <Routes>
-              <Route exact path='/' element={<h2>Welcome to StarDB!</h2>} />
-              <Route path='/people' element={ <PeoplePage /> }/>
-              <Route path='/planets' element={ <PlanetsPage /> } />
-              <Route exact path='/starships' element={ <StarshipsPage /> } />
+              <Route exact path='/' element={ this.MainContent() } />
+              <Route path='/people/' element={ <PeoplePage /> }/>
+              <Route path='/planets/' element={ <PlanetsPage /> } />
+              <Route exact path='/starships/' element={ <StarshipsPage /> } />
             </Routes>
           </div>
         </Router>
