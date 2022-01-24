@@ -41,10 +41,10 @@ export default class App extends React.Component {
             <RandomPlanet />
 
             <Routes>
-              <Route exact path='/' element={ this.MainContent() } />
-              <Route path='/people/' element={ <PeoplePage /> }/>
-              <Route path='/planets/' element={ <PlanetsPage /> } />
-              <Route exact path='/starships/' element={ <StarshipsPage /> } />
+              <Route exact path='/starDB/' element={ this.MainContent() } />
+              <Route path='/starDB/people/' element={ <PeoplePage /> }/>
+              <Route path='/starDB/planets/' element={ <PlanetsPage /> } />
+              <Route exact path='/starDB/starships/' element={ <StarshipsPage /> } />
             </Routes>
           </div>
         </Router>
