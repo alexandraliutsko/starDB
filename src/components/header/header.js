@@ -2,7 +2,7 @@ import React from "react";
 
 import './header.css';
 
-import { Link } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -13,13 +13,13 @@ const Header = () => {
 
             <ul className="d-flex">
                 <li>
-                    <Link to="/starDB/people/">People</Link>
+                    <NavLink to="/starDB/people/">People</NavLink>
                 </li>
                 <li>
-                    <Link to="/starDB/planets/">Planets</Link>
+                    <NavLink to="/starDB/planets/">Planets</NavLink>
                 </li>
                 <li>
-                    <Link to="/starDB/starships/">Starships</Link>
+                    <NavLink to="/starDB/starships/">Starships</NavLink>
                 </li>
             </ul>
         </div>

@@ -18,6 +18,10 @@
     text-decoration: none;
 }
 
+.header a.active {
+    text-decoration: underline;
+}
+
 .header h3 a {
     color: white;
     text-decoration: none;
